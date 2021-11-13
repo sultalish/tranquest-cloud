@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import Login from './components/Login';
-// import Home from './components/Home';
 import firebase from './service/firebase';
 
 import './App.css';
+import TaskDetails from './components/TaskDetails';
 
 
 
@@ -21,7 +21,9 @@ function App() {
 
   return (
     <div className="app">
-      <Login />
+      <section>
+      {user ? <TaskDetails /> : <Login />}
+      </section>
     </div>
   );
 }
