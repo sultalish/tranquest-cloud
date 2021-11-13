@@ -1,17 +1,15 @@
 import { db, auth } from '../service/firebase';
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/compat/app';
-import useWindowDimensions from './useWindowDimensions';
+import useWindowWidth from './useWindowWidth';
 
 // Each task completed grants 100xp
 // XP required to reach next level = currentLevel * 1000
 
-const ProgressBar = async ( {user} ) => {
-  const { windowWidth, windowHeight } = useWindowDimensions();
-  const [level, setLevel] = useState(0);
-  const [xplevel, setXPLevel] = useState(0); // Between 0 and nextLevelXP
-  const [nextLevelXP, setNextLevelXP] = useState(0);
+const ProgressBar = () => {
+  const windowWidth = useWindowWidth();
   const [progressWidth, setProgressWidth] = useState('');
+  const [user, setUser] = useState(null);
 
 
   // async function levelUp() {
@@ -24,19 +22,18 @@ const ProgressBar = async ( {user} ) => {
   //     .then(() => {console.log("Level Up!")});
   // }
 
-  useEffect(() => {
-    const userRef = db.collection('users').doc(auth.currentUser.uid);
-    console.log(userRef);
-    setLevel(userRef.get("level"));
-    setXPLevel(userRef.get("xplevel"));
-    setNextLevelXP(userRef.get("level") * 1000);
-    setProgressWidth(`${xplevel/nextLevelXP * windowWidth}px`);
+  useEffect(async () => {
 
-    console.log(level);
-    console.log(xplevel);
-    console.log(nextLevelXP);
+    const userRef = db.collection('users').doc(auth.currentUser.uid);
+    const doc = await userRef.get();
+    setUser(doc.data());
+
+    if (user !== null) {
+      console.log(windowWidth);
+      setProgressWidth(`${user.xplevel/(user.level*1000) * windowWidth}px`);
+    }
     console.log(progressWidth);
-  }, [])
+  }, [windowWidth]);
 
   return (
     <div>

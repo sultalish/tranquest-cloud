@@ -22,7 +22,8 @@ const TaskDetails = () => {
             task: input,
             completed: false
         })
-
+        console.log(res);
+        console.log(res);
         setTasks([...tasks, {task: input, completed: false, id: res.id}]);//pushes it to the end
         setInput(''); //clears input
     }

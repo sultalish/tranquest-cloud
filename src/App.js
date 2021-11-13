@@ -25,6 +25,16 @@ function App() {
     })
   }, [])
 
+  console.log(user);
+
+  function RequireAuth({ Component, redirectLink}) {
+    if (user) {
+      return <Component user={user}/>;
+    } else {
+      return <Navigate to={redirectLink}/>;
+    }
+  }
+
   return (
     <Router>
       <div className="app">

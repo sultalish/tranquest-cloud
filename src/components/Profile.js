@@ -26,7 +26,7 @@ const Profile = ( {user} ) => {
           <p>{user.description}</p>
         </div>
         <Badges badges={user.badges}/>
-        //<ProgressBar user={user}/>
+        <ProgressBar user={user}/>
       </div>
     </div>
   )

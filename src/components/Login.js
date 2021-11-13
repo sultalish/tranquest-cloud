@@ -8,10 +8,9 @@ import badges from './badges-list';
 
 const Login = () => {
   const navigate = useNavigate();
-  
+
   function signIn() {
     signInWithGoogle().then((result) => {
-        console.log('hi');
         db.collection("users").doc(auth.currentUser.uid).set({
             name: auth.currentUser.displayName,
             email: auth.currentUser.email,
