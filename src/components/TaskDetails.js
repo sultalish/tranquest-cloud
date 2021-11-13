@@ -4,21 +4,18 @@ import Tasks from "./Tasks";
 
 const TaskDetails = () =>{
     // eslint-disable-next-line
-    const [nextID, setNextID] = useState(0);
     const [tasks, setTasks] = useState([]);
     const [input, setInput] = useState('');
     const [dueDateInput, setDueDateInput] = useState('');
 
     useEffect(() => {
         //this code runs when app.js loads
-        let currentID = nextID;
+
         db.collection('users').doc(auth.currentUser.uid).collection('tasks')
         .onSnapshot(snapshot => { setTasks(snapshot.docs.map(doc => {
-            const temp = {title: doc.data().task, dueDate: doc.data().dueDate,
-            id: currentID};
-            currentID += 1; return temp;}))
+            return {title: doc.data().task, dueDate: doc.data().dueDate};
+            }))
         })
-        setNextID(currentID);
         // eslint-disable-next-line
     }, []);
     console.log(tasks);
@@ -26,13 +23,30 @@ const TaskDetails = () =>{
     const addTasks = (event) => {
         //this will fire off when we click the button
         event.preventDefault(); //it will stop refresh
-        setNextID(nextID+1);
+
+        if (input === undefined){
+            return;
+        }
+
+        else if (input === ""){
+            return;
+        }
+
+        else{
+            for (let i = 0; i < tasks.length; i++)
+            {
+                if (tasks[i].title === input)
+                {
+                    return;
+                }
+            }
+        }
 
         db.collection('users').doc(auth.currentUser.uid).collection('tasks').add({
             task: input, dueDate: dueDateInput
         })
 
-        setTasks([...tasks, {title: input, dueDate: dueDateInput, id: nextID}]);//pushes it to the end
+        setTasks([...tasks, {title: input, dueDate: dueDateInput}]);//pushes it to the end
         setDueDateInput('');
         setInput(''); //clears input
     }
@@ -49,7 +63,7 @@ const TaskDetails = () =>{
                 <button onClick ={addTasks}>Add To List</button>
                     <ul>
                         {tasks.map(task => (
-                            <Tasks text={task.title} dueDate={task.dueDate} key={task.id}/>))}
+                            <Tasks text={task.title} dueDate={task.dueDate} key={task.title}/>))}
                     </ul>
                 </form>
         </div>
