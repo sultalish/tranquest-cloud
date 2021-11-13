@@ -1,5 +1,4 @@
 import { auth, db, signInWithGoogle } from '../service/firebase';
-import firebase from "firebase/compat/app";
 
 import '../App.css';
 
@@ -23,9 +22,17 @@ function signIn() {
             .catch((error) => {
                 console.error("Error writing document: ", error);
             });
-        const user = db.collection("users").doc(auth.currentUser.uid);
 
-        user.collection("tasks").doc("null").set({
+        db.collection("users").doc(auth.currentUser.uid).collection("tasks").doc("null").set({
+        })
+            .then(() => {
+                console.log("Document successfully written!");
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+            });
+
+        db.collection("users").doc(auth.currentUser.uid).collection("chats").doc("null").set({
         })
             .then(() => {
                 console.log("Document successfully written!");

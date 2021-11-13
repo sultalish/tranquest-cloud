@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import Login from './components/Login';
 // import Home from './components/Home';
-import firebase, { auth } from './service/firebase';
+import firebase from './service/firebase';
 
 import './App.css';
 import TextChat from './components/TextChat';
-
-
+import ChatsMenu from './components/ChatsMenu';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="app">
-      {user ? <TextChat user={user} /> : <Login />}
+      {user ? <ChatsMenu user={user} /> : <Login />}
     </div>
   );
 }
