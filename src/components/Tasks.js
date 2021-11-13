@@ -4,6 +4,7 @@ const Tasks = (props) => {
     return (
         <div>
             <li>{props.text}</li>
+            <li>{props.dueDate}</li>
         </div>
     )
 }
