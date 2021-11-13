@@ -13,7 +13,7 @@ const TaskDetails = () =>{
             setTasks(snapshot.docs.map(doc => doc.data().task))
         })
     }, []);
-
+    // eslint-disable-next-line
     const addTasks = (event) => {
         //this will fire off when we click the button
         event.preventDefault(); //it will stop refresh
@@ -27,16 +27,18 @@ const TaskDetails = () =>{
     }
 
     return(
-        <div className="Add-ToDo">
-            <form>
-            <input value={input} onChange={event => setInput(event.target.value)}/>
-            <button onClick ={addTasks}>Add To List</button>
-            <ul>
-                {tasks.map(tasks => (
-                    <Tasks text={tasks}/>
-                ))}
-            </ul>
-            </form>
+        <div className="Add-To-Do">
+
+                    <p>Tasks</p>
+                <form>
+                <input value={input} onChange={event => setInput(event.target.value)}/>
+                <button onClick ={addTasks}>Add To List</button>
+                <ul>
+                    {tasks.map(tasks => (
+                        <Tasks text={tasks}/>
+                    ))}
+                    </ul>
+                    </form>
         </div>
     )
     
