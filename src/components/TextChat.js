@@ -8,8 +8,9 @@ import SendMessage from './SendMessage';
 const TextChat = ({ user }) => {
     const scroll = useRef();
     const [messages, setMessages] = useState([])
+
     useEffect(() => {
-        db.collection('users').doc(auth.currentUser.uid).collection('chats').orderBy('createdAt').limit(30).onSnapshot(snapshot => {
+        db.collection('global-chat').orderBy('createdAt').limit(30).onSnapshot(snapshot => {
             setMessages(snapshot.docs.map(doc => doc.data()))
         })
     }, []);
