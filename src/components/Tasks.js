@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Tasks = (props) => {
+
     return (
         <div>
             <li>{props.text}</li>

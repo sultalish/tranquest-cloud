@@ -32,6 +32,10 @@ const TaskDetails = () =>{
             return;
         }
 
+        else if (dueDateInput === ""){
+            return;
+        }
+
         else{
             for (let i = 0; i < tasks.length; i++)
             {
