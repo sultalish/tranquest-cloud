@@ -11,7 +11,7 @@ function SendMessage() {
         e.preventDefault();
         const { uid, photoURL } = auth.currentUser;
 
-        await db.collection('users').doc(auth.currentUser.uid).collection('chats').add({
+        await db.collection('global-chat').add({
             text: msg,
             photoURL,
             uid,

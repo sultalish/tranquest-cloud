@@ -9,12 +9,8 @@ import Dashboard from './components/Dashboard';
 import Badges from './components/Badges';
 import TaskDetails from './components/TaskDetails';
 import TextChat from './components/TextChat';
-import Account from './components/Account';
-
-import { RequireAuth } from './components/RequireAuth';
 
 import './App.css';
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -51,17 +47,12 @@ function App() {
               <RequireAuth redirectLink="/login" Component={Profile} user={user}/>
             }
           />
-        <Route path='/account'
-            element={
-              <RequireAuth redirectLink="/login" Component={Account} user={user}/>
-            }
-          />
           <Route path='/tasks'
             element={
               <RequireAuth redirectLink="/login" Component={TaskDetails} user={user}/>
             }
           />
-          <Route path='/chat'
+        <Route path='/texts'
             element={
               <RequireAuth redirectLink="/login" Component={TextChat} user={user}/>
             }

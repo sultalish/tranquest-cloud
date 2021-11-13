@@ -6,8 +6,6 @@ import ProgressBar from './ProgressBar';
 
 const Profile = ( {user} ) => {
 
-  const { photoURL } = auth.currentUser;
-
   console.log(user.level);
 
   return (
@@ -15,7 +13,7 @@ const Profile = ( {user} ) => {
       <div className='profile-page'>
         <div className='profile-header'>
           <div className='profile-header-left'>
-            <img alt="avatar" src={photoURL}/>
+            <img alt="avatar" src={user.photoURL}/>
             <p>{user.name}</p>
           </div>
           <div className='profile-header-right'>

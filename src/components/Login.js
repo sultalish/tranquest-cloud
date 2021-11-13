@@ -2,9 +2,9 @@ import { db, auth, signInWithGoogle } from '../service/firebase';
 
 import { useNavigate } from 'react-router-dom';
 
-import '../App.css';
-
 import badges from './badges-list';
+
+import '../App.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,6 +14,8 @@ const Login = () => {
         db.collection("users").doc(auth.currentUser.uid).set({
             name: auth.currentUser.displayName,
             email: auth.currentUser.email,
+            photoURL: auth.currentUser.photoURL,
+            uid: auth.currentUser.uid,
             level: 1,
             xplevel: 0,
             tasksCompleted: 0
