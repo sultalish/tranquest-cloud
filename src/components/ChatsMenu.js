@@ -6,6 +6,10 @@ import '../App.css';
 import SendMessage from './SendMessage';
 
 import TextChat from './TextChat';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import Login from "./Login"
+
 
 
 const ChatsMenu = () => {
@@ -19,7 +23,15 @@ const ChatsMenu = () => {
 
     return (
         <div>
-            <h1>HERE</h1>
+            <a>
+                <h1>
+                    <img src={auth.currentUser.photoURL} alt="" />
+                </h1>
+                {auth.currentUser.displayName}
+                <br />
+                {auth.currentUser.email}
+            </a>
+
 
             <div className="msgs">
                 {chats.map(({ chatName }) => (
@@ -29,13 +41,12 @@ const ChatsMenu = () => {
                 ))}
 
                 {/* <button onClick={() => window.open(<TextChat />)}>Start new chat!</button> */}
-                <a href={<TextChat />}>Text chat</a>
-            </div>
+            </div >
 
             <div>
                 <button className="button signout" onClick={() => auth.signOut()}>Sign out</button>
             </div>
-        </div>
+        </div >
     )
 };
 

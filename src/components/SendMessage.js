@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { db, auth } from '../service/firebase'
 import firebase from "firebase/compat/app";
 
+import '../App.css';
+
 function SendMessage() {
     const [msg, setMsg] = useState('')
 
@@ -9,7 +11,7 @@ function SendMessage() {
         e.preventDefault();
         const { uid, photoURL } = auth.currentUser;
 
-        await db.collection('messages').add({
+        await db.collection('users').doc(auth.currentUser.uid).collection('chats').add({
             text: msg,
             photoURL,
             uid,
@@ -19,10 +21,11 @@ function SendMessage() {
     };
 
     return (
-        <div>
+        <div className="sendMsg">
             <form onSubmit={sendMessage}>
-                <input value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Message..." />
-                <button type="submit">Send</button>
+                <input className="msg-field" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Message..." />
+                <button className="submit-button" type="submit">Send</button>
+                <button className="signout-button" onClick={() => auth.signOut()}>Sign out</button>
             </form>
         </div>
     );

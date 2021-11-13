@@ -12,6 +12,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 function App() {
   const [user, setUser] = useState(null);
 
+
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
       setUser(user);
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <div className="app">
-      {user ? <ChatsMenu user={user} /> : <Login />}
+      {user ? <TextChat user={user} /> : <Login />}
     </div>
   );
 }

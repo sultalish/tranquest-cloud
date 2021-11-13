@@ -60,13 +60,32 @@ p {
   flex-direction: column;
 }
 
-.chatName {
+.msg-field {
+  background-color: white;
+  color: grey;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 10px;
+}
+
+.submit-button {
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 10px;
+  cursor: pointer;
+}
+
+.signout-button {
   background-color: black;
   color: white;
   font-size: 20px;
   padding: 10px 60px;
   border-radius: 5px;
-  margin: 10px 0px;
+  margin: 10px 10px;
   cursor: pointer;
 }
 

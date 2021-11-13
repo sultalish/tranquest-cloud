@@ -9,14 +9,13 @@ const TextChat = ({ user }) => {
     const scroll = useRef();
     const [messages, setMessages] = useState([])
     useEffect(() => {
-        db.collection('messages').orderBy('createdAt').limit(30).onSnapshot(snapshot => {
+        db.collection('users').doc(auth.currentUser.uid).collection('chats').orderBy('createdAt').limit(30).onSnapshot(snapshot => {
             setMessages(snapshot.docs.map(doc => doc.data()))
         })
     }, []);
 
     return (
         <div>
-            <button className="button signout" onClick={() => auth.signOut()}>Sign out</button>
             <div className="msgs">
                 {messages.map(({ id, text, photoURL, uid }) => (
                     <div>
