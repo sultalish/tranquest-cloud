@@ -33,6 +33,7 @@ function App() {
               <Route path='/dashboard' exact element={<DashBoard />} />
               <Route path='/tasks' element={<TaskDetails />} />
               <Route path='/texts' element={<TextChat user={user} />} />
+              <Route path='/login' element={<Login />} />
             </Routes>
           </Router> : <Login />}
       </section>
