@@ -39,7 +39,7 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
-          <Route path='/' element={<Navigate replace to='/dashboard'/>}/>
+          <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/dashboard'
             element={
