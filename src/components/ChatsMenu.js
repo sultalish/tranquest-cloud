@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { auth, db } from '../service/firebase'
 
+import './ChatsMenu.css';
 import '../App.css';
 import SendMessage from './SendMessage';
 
@@ -39,8 +40,6 @@ const ChatsMenu = () => {
                         <button className="chatName">{chatName}</button>
                     </div>
                 ))}
-
-                {/* <button onClick={() => window.open(<TextChat />)}>Start new chat!</button> */}
             </div >
 
             <div>
