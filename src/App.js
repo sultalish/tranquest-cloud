@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 import Login from './components/Login';
-// import Home from './components/Home';
 import firebase from './service/firebase';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import TaskDetails from './components/TaskDetails';
+import DashBoard from './components/DashBoard';
+import TextChat from './components/TextChat';
+import Navbar from './components/NavBar';
 
 
 
@@ -21,7 +25,17 @@ function App() {
 
   return (
     <div className="app">
-      <Login />
+      <section>
+      {user ? 
+      <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/dashboard' exact element={<DashBoard />} />
+        <Route path='/tasks' element={<TaskDetails/>} />
+        <Route path='/texts' element={<TextChat/>} />
+      </Routes>
+    </Router> : <Login />}
+      </section>
     </div>
   );
 }
