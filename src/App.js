@@ -26,15 +26,15 @@ function App() {
   return (
     <div className="app">
       <section>
-      {user ? 
-      <Router>
-      <Navbar />
-      <Routes>
-        <Route path='/dashboard' exact element={<DashBoard />} />
-        <Route path='/tasks' element={<TaskDetails/>} />
-        <Route path='/texts' element={<TextChat/>} />
-      </Routes>
-    </Router> : <Login />}
+        {user ?
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path='/dashboard' exact element={<DashBoard />} />
+              <Route path='/tasks' element={<TaskDetails />} />
+              <Route path='/texts' element={<TextChat user={user} />} />
+            </Routes>
+          </Router> : <Login />}
       </section>
     </div>
   );
