@@ -5,6 +5,7 @@ import Login from './components/Login';
 import firebase from './service/firebase';
 
 import './App.css';
+import TextChat from './components/TextChat';
 
 
 
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <div className="app">
-      <Login />
+      {user ? <TextChat user={user} /> : <Login />}
     </div>
   );
 }
