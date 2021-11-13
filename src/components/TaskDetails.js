@@ -6,6 +6,7 @@ const TaskDetails = () => {
     // eslint-disable-next-line
     const [tasks, setTasks] = useState([]);
     const [input, setInput] = useState('');
+    const [dueDateInput, setDueDateInput] = useState('');
 
     useEffect(() => {
         //this code runs when app.js loads
@@ -18,14 +19,26 @@ const TaskDetails = () => {
         //this will fire off when we click the button
         event.preventDefault(); //it will stop refresh
 
+        if (input === undefined || input === "") {
+          return;
+        }
+
         const res = await db.collection('users').doc(auth.currentUser.uid).collection('tasks').add({
             task: input,
-            completed: false
+            dueDate: dueDateInput,
+            completed: false,
+            id: 0
         })
+
+        db.collection('users').doc(auth.currentUser.uid).collection('tasks').doc(res.id).update({
+          id: res.id,
+        })
+
         console.log(res);
-        console.log(res);
-        setTasks([...tasks, {task: input, completed: false, id: res.id}]);//pushes it to the end
+        setTasks([...tasks, {task: input, dueDate: dueDateInput, completed: false, id: res.id}]);//pushes it to the end
+
         setInput(''); //clears input
+        setDueDateInput(''); //clears input
     }
 
     const markComplete = (id) => {
@@ -35,14 +48,22 @@ const TaskDetails = () => {
       })
     }
 
+    const deleteTask = (event, id) => {
+      event.preventDefault();
+      db.collection('users').doc(auth.currentUser.uid).collection('tasks').doc(id).delete();
+      console.log(id);
+      setTasks(tasks.filter(task => task.id !== id));
+    }
+
     return(
         <div className="Add-ToDo">
             <form>
             <input value={input} onChange={event => setInput(event.target.value)}/>
+            <input value={dueDateInput} onChange={event => setDueDateInput(event.target.value)}/>
             <button onClick ={addTasks}>Add To List</button>
             <ul>
                 {tasks.map(task => (
-                    <Tasks key={task.id} task={task} markComplete={markComplete}/>
+                    <Tasks key={task.id} task={task} markComplete={markComplete} deleteTask={deleteTask}/>
                 ))}
             </ul>
             </form>
