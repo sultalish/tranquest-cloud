@@ -44,7 +44,9 @@ function signIn() {
             });
 
         console.log(result)
-    })
+    }).catch((error) => {
+        console.error("Error logging it: ", error);
+    });
 }
 
 export default Login;
