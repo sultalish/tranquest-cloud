@@ -30,9 +30,9 @@ function App() {
       <Router>
       <Navbar />
       <Routes>
-        <Route path='/dashboard' exact component={DashBoard} />
-        <Route path='/tasks' component={TaskDetails} />
-        <Route path='/texts' component={TextChat} />
+        <Route path='/dashboard' exact element={<DashBoard />} />
+        <Route path='/tasks' element={<TaskDetails/>} />
+        <Route path='/texts' element={<TextChat/>} />
       </Routes>
     </Router> : <Login />}
       </section>
