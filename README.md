@@ -6,6 +6,11 @@ Visit a demo of the website here: https://tranquest-cloud.web.app/texts
 
 This project was bootstrapped with [Create React App] (https://github.com/facebook/create-react-app).
 
+## Technologies
+
+ReactJS 17.0.2
+Firebase 9.4.1
+
 ## Available Scripts
 
 In the project directory, you can run:
