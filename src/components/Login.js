@@ -2,6 +2,8 @@ import { auth, db, signInWithGoogle } from '../service/firebase';
 
 import '../App.css';
 
+import badges from './badges-list';
+
 const Login = () => {
     return (
         <div>
@@ -16,8 +18,11 @@ function signIn() {
             name: auth.currentUser.displayName,
             email: auth.currentUser.email,
             photoURL: auth.currentUser.photoURL,
-            uid: auth.currentUser.uid
-        })
+            uid: auth.currentUser.uid,
+            level: 1,
+            xplevel: 0,
+            tasksCompleted: 0
+        }, { merge: true })
             .then(() => {
                 console.log("Document successfully written!");
             })
@@ -42,6 +47,16 @@ function signIn() {
             .catch((error) => {
                 console.error("Error writing document: ", error);
             });
+
+        badges.forEach((badge, i) => {
+          db.collection("users").doc(auth.currentUser.uid).collection("badges").doc(i.toString()).set(badge, { merge: true })
+            .then(() => {
+                console.log("Document successfully written!");
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+            });
+        });
 
         console.log(result)
     }).catch((error) => {

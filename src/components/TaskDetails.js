@@ -12,15 +12,13 @@ const TaskDetails = () =>{
         //this code runs when app.js loads
 
         db.collection('users').doc(auth.currentUser.uid).collection('tasks')
-        .onSnapshot(snapshot => { setTasks(snapshot.docs.map(doc => {
-            return {title: doc.data().task, dueDate: doc.data().dueDate};
-            }))
+        .onSnapshot(snapshot => { setTasks(snapshot.docs.map(doc => doc.data()))
         })
         // eslint-disable-next-line
     }, []);
     console.log(tasks);
     // eslint-disable-next-line
-    const addTasks = (event) => {
+    const addTasks = async (event) => {
         //this will fire off when we click the button
         event.preventDefault(); //it will stop refresh
 
@@ -36,26 +34,41 @@ const TaskDetails = () =>{
             return;
         }
 
-        else{
-            for (let i = 0; i < tasks.length; i++)
-            {
-                if (tasks[i].title === input)
-                {
-                    return;
-                }
-            }
-        }
+        // else{
+        //     for (let i = 0; i < tasks.length; i++)
+        //     {
+        //         if (tasks[i].title === input)
+        //         {
+        //             return;
+        //         }
+        //     }
+        // }
 
-        db.collection('users').doc(auth.currentUser.uid).collection('tasks').add({
-            task: input, dueDate: dueDateInput
+        const res = await db.collection('users').doc(auth.currentUser.uid).collection('tasks').add({
+            task: input, dueDate: dueDateInput, completed: false, id: 0
         })
 
-        setTasks([...tasks, {title: input, dueDate: dueDateInput}]);//pushes it to the end
+        db.collection('users').doc(auth.currentUser.uid).collection('tasks').doc(res.id).update({
+          id: res.id,
+        })
+
+        setTasks([...tasks, {title: input, dueDate: dueDateInput, completed: false, id: res.id}]);//pushes it to the end
         setDueDateInput('');
         setInput(''); //clears input
     }
 
+    const markComplete = (event, id) => {
+      event.preventDefault();
+      db.collection('users').doc(auth.currentUser.uid).collection('tasks').doc(id).update({
+        completed: true
+      })
+    }
 
+    const deleteTask = (event, id) => {
+      event.preventDefault();
+      db.collection('users').doc(auth.currentUser.uid).collection('tasks').doc(id).delete();
+      setTasks(tasks.filter(task => task.id !== id));
+    }
 
     return(
         <div className="Add-To-Do">
@@ -67,7 +80,11 @@ const TaskDetails = () =>{
                 <button onClick ={addTasks}>Add To List</button>
                     <ul>
                         {tasks.map(task => (
-                            <Tasks text={task.title} dueDate={task.dueDate} key={task.title}/>))}
+                            <Tasks
+                              task={task}
+                              markComplete={markComplete}
+                              deleteTask={deleteTask}
+                            />))}
                     </ul>
                 </form>
         </div>
