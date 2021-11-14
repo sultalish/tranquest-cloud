@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { auth, db } from "../service/firebase";
 import Tasks from "./Tasks";
+import './Tasks.css';
 
 const TaskDetails = () =>{
     // eslint-disable-next-line
@@ -34,16 +35,6 @@ const TaskDetails = () =>{
             return;
         }
 
-        // else{
-        //     for (let i = 0; i < tasks.length; i++)
-        //     {
-        //         if (tasks[i].title === input)
-        //         {
-        //             return;
-        //         }
-        //     }
-        // }
-
         const res = await db.collection('users').doc(auth.currentUser.uid).collection('tasks').add({
             task: input, dueDate: dueDateInput, completed: false, id: 0
         })
@@ -72,22 +63,31 @@ const TaskDetails = () =>{
 
     return(
         <div className="Add-To-Do">
+          <div className="task-header">
+            <h2>Tasks</h2>
+            <p>Add</p>
+          </div>
+          <div className="task-dashboard">
+            <div className="taskbar">
+              {tasks.map(task => (
+                  <Tasks
+                    key={task.id}
+                    task={task}
+                    markComplete={markComplete}
+                    deleteTask={deleteTask}
+                  />))}
+            </div>
 
-                <p>Tasks</p>
-                <form>
+            <div className="center-dash">
+              <form className="task-add-form">
+                <h1>Add Task</h1>
                 <input value={input} onChange={event => setInput(event.target.value)}/>
                 <input value={dueDateInput} onChange={event => setDueDateInput(event.target.value)}/>
                 <button onClick ={addTasks}>Add To List</button>
-                    <ul>
-                        {tasks.map(task => (
-                            <Tasks
-                              key={task.id}
-                              task={task}
-                              markComplete={markComplete}
-                              deleteTask={deleteTask}
-                            />))}
-                    </ul>
-                </form>
+              </form>
+            </div>
+          </div>
+
         </div>
     )
 }

@@ -1,0 +1,75 @@
+:root {
+  --yellow: #FDF8E2;
+  --pale-pink: #FFDDD3;
+  --pink: #F3BFB3;
+  --dark-blue: #5EA9BE;
+  --blue: #9ACDE0;
+  --light-blue: #CBE1EF
+}
+
+.Add-To-Do {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  max-width: 1024px;
+  margin: auto;
+  padding: 10px;
+}
+
+.task-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.taskbar {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: var(--pink);
+  flex-grow: 1;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.task:hover {
+  background-color: var(--pale-pink);
+  cursor: pointer;
+}
+
+.task-delete:hover {
+  text-decoration: underline;
+  color: red;
+  cursor: pointer;
+}
+
+.taskdetails {
+  background-color: var(--blue);
+}
+
+.task-header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.center-dash {
+  background-color: var(--dark-blue);
+  margin: 0 10px;
+  border-radius: 10px;
+  flex-grow: 2;
+}
+
+.task-add-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 100px;
+  height: 100%;
+  text-align: center;
+}
