@@ -4,12 +4,14 @@ Tranquest Cloud is a hackathon project designed to inspire and motivate people i
 
 Visit a demo of the website here: https://tranquest-cloud.web.app/texts
 
-This project was bootstrapped with [Create React App] (https://github.com/facebook/create-react-app).
+![firefox_UMWrzVq5Hs](https://user-images.githubusercontent.com/46247315/141679472-ec68190d-37b6-49e8-9112-39a309595d80.png)
+
+![firefox_Bsux0nf1fI](https://user-images.githubusercontent.com/46247315/141679474-a80c797e-b452-47a4-bfd1-79f73526e9b6.png)
 
 ## Technologies
 
-ReactJS 17.0.2
-Firebase 9.4.1
+- ReactJS 17.0.2
+- Firebase 9.4.1
 
 ## Setup
 To run this project, install it locally using npm:
