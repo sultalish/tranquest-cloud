@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import { db, auth } from '../service/firebase';
 import firebase from '../service/firebase';
 
+import './HPBar.css';
+
 const HPBar = () => {
   const [progressWidth, setProgressWidth] = useState(0);
   const [level, setLevel] = useState(0);
   const [xpLevel, setXPLevel] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(async() => {
     // Get number of tasks completed
@@ -21,29 +24,25 @@ const HPBar = () => {
 
     setLevel(currentLevel);
     setXPLevel(calcLevel - Math.floor(calcLevel));
-
-    const width = xpLevel / (level * 100);
-
-    setProgressWidth(width);
-  }, [])
-
-  const divStyle = {
-    height: 20,
-    marginTop: 100,
-  }
+    setProgressWidth(`${(xpLevel * windowWidth) * 100 / windowWidth}%`);
+  }, [windowWidth])
 
   const barStyle = {
-    width: progressWidth,
-    height: 20,
-    backgroundColor: "black"
+    width: progressWidth
   }
 
   return (
-    <div style={divStyle} className="XPBAR">
-      <p>{level}</p>
+    <div className="XPBAR">
       <div style={barStyle} className="CURRENTXP">
       </div>
-      <p>{level + 1}</p>
+      <div className="levels">
+        <div className="level-1">
+          <p>{level}</p>
+        </div>
+        <div className="level-2">
+          <p>{level + 1}</p>
+        </div>
+      </div>
     </div>
   )
 }

@@ -15,10 +15,10 @@ const Badges = (user) => {
 
   return (
     <div>
-      <HPBar/>
       {badges.map((badge) => {
         return <Badge badge={badge}/>
       })}
+      <HPBar/>
     </div>
   )
 }

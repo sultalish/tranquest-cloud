@@ -10,6 +10,7 @@ import DashBoard from './components/DashBoard';
 import TextChat from './components/TextChat';
 import Navbar from './components/NavBar';
 import Badges from './components/Badges';
+import HPBar from './components/HPBar';
 
 
 
@@ -37,6 +38,7 @@ function App() {
               <Route path='/badges' element={<Badges user={user} />} />
               <Route path='/login' element={<Login />} />
             </Routes>
+            <HPBar/>
           </Router> : <Login />}
       </section>
     </div>
