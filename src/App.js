@@ -31,7 +31,7 @@ function App() {
           <Router>
             <Navbar />
             <Routes>
-              <Route path='/dashboard' exact element={<DashBoard />} />
+              <Route path='/' exact element={<DashBoard />} />
               <Route path='/tasks' element={<TaskDetails />} />
               <Route path='/texts' element={<TextChat user={user} />} />
               <Route path='/badges' element={<Badges user={user} />} />
