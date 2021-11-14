@@ -9,16 +9,16 @@ const Badges = (user) => {
 
   useEffect(() => {
     db.collection('users').doc(auth.currentUser.uid).collection('badges').onSnapshot(snapshot => {
-        setBadges(snapshot.docs.map(doc => doc.data()))
+      setBadges(snapshot.docs.map(doc => doc.data()))
     })
   }, []);
 
   return (
     <div>
       {badges.map((badge) => {
-        return <Badge badge={badge}/>
+        return <Badge badge={badge} />
       })}
-      <HPBar/>
+      <HPBar />
     </div>
   )
 }
