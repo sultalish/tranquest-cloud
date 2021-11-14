@@ -2,6 +2,8 @@
 
 Tranquest Cloud is a hackathon project designed to inspire and motivate people in their daily tasks. Users can refresh themselves with an Inspirational Quote of the Day and chat with other users. They can also gain HP points and level up by completing tasks.
 
+Visit a demo of the website here: https://tranquest-cloud.web.app/texts
+
 This project was bootstrapped with [Create React App] (https://github.com/facebook/create-react-app).
 
 ## Available Scripts
