@@ -36,7 +36,7 @@ function App() {
               <Route path='/' exact element={<DashBoard />} />
               <Route path='/tasks' element={<TaskDetails setUpdateHPBar={setUpdateHPBar}/>} />
               <Route path='/texts' element={<TextChat user={user} />} />
-              <Route path='/badges' element={<Badges user={user} />} />
+              <Route path='/badges' element={<Badges />} />
               <Route path='/login' element={<Login />} />
             </Routes>
             <HPBar updateHPBar={updateHPBar} setUpdateHPBar={setUpdateHPBar}/>

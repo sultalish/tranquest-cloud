@@ -4,7 +4,7 @@ import firebase from '../service/firebase';
 import Tasks from "./Tasks";
 import './Tasks.css';
 
-const TaskDetails = ({setUpdateHPBar}) =>{
+const TaskDetails = () =>{
     // eslint-disable-next-line
     const [tasks, setTasks] = useState([]);
     const [input, setInput] = useState('');
@@ -58,8 +58,6 @@ const TaskDetails = ({setUpdateHPBar}) =>{
         tasksCompleted: firebase.firestore.FieldValue.increment(1),
         xplevel: firebase.firestore.FieldValue.increment(100)
       })
-      setUpdateHPBar(true);
-      console.log("Completed a task!");
     }
 
     const deleteTask = (event, id) => {
