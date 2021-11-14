@@ -25,14 +25,17 @@ const TaskDetails = () =>{
         event.preventDefault(); //it will stop refresh
 
         if (input === undefined){
+            alert("You must use a valid input");
             return;
         }
 
         else if (input === ""){
+            alert("You must input a task name");
             return;
         }
 
         else if (dueDateInput === ""){
+            alert("You must input a due date");
             return;
         }
 
