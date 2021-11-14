@@ -6,18 +6,11 @@ import badges from './badges-list';
 
 const Login = () => {
     return (
-        <div className="Add-To-Do">
+        <div className="login-page">
             <div className="task-header">
                 <h2>Tranquest Cloud</h2>
             </div>
-            <div>
-                <div className="center-dash">
-                    <div className="task-add-form">
-                        <button className="login" onClick={signIn}>Sign in with google</button>
-                    </div>
-                </div>
-            </div>
-
+            <button className="login" onClick={signIn}>Sign in with Google</button>
         </div>
     )
 }
@@ -29,8 +22,6 @@ function signIn() {
             email: auth.currentUser.email,
             photoURL: auth.currentUser.photoURL,
             uid: auth.currentUser.uid,
-            level: 1,
-            xplevel: 0,
             tasksCompleted: 0
         }, { merge: true })
             .then(() => {
@@ -58,9 +49,10 @@ function signIn() {
                 console.error("Error writing document: ", error);
             });
 
+
         badges.forEach((badge, i) => {
-            db.collection("users").doc(auth.currentUser.uid).collection("badges").doc(i.toString())
-            .set({...badge, id: i}, { merge: true })
+            db.collection("badges").doc(i.toString())
+            .set(badge, { merge: true })
                 .then(() => {
                     console.log("Document successfully written!");
                 })

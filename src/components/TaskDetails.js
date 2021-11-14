@@ -54,10 +54,10 @@ const TaskDetails = () =>{
       db.collection('users').doc(auth.currentUser.uid).collection('tasks').doc(id).update({
         completed: true
       })
-      db.collection('users').doc(auth.currentUser.uid).update({
-        tasksCompleted: firebase.firestore.FieldValue.increment(1),
-        xplevel: firebase.firestore.FieldValue.increment(100)
-      })
+      // db.collection('users').doc(auth.currentUser.uid).update({
+      //   tasksCompleted: firebase.firestore.FieldValue.increment(1),
+      //   xplevel: firebase.firestore.FieldValue.increment(100)
+      // })
     }
 
     const deleteTask = (event, id) => {
@@ -71,29 +71,29 @@ const TaskDetails = () =>{
           <div className="task-header">
             <h2>Tasks</h2>
           </div>
-          <div className="taskbar">
-            {tasks.map(task => {
-                if (Object.keys(task).length > 1) {
-                  return <Tasks
-                    key={task.id}
-                    task={task}
-                    markComplete={markComplete}
-                    deleteTask={deleteTask}
-                  />
-              }}
-            )}            
-          </div>
-          <div className="add-task">
-            <div className="center-dash">
-              <form className="task-add-form">
-                <h1 className="add">Add Task</h1>
-                <h3 className="task-name">Task Name</h3>
-                <input className="input" placeholder="Task Name" value={input} onChange={event => setInput(event.target.value)}/>
-                <h3 className="task-name">Completed By</h3>
-                <input className="input" placeholder="Due Date" value={dueDateInput} onChange={event => setDueDateInput(event.target.value)}/>
-                <button className="button" onClick ={addTasks}>Add To List</button>
-              </form>
+          <div className="task-dashboard">
+            <div className="taskbar">
+              {tasks.map(task => {
+                  if (Object.keys(task).length > 1) {
+                    return <Tasks
+                      key={task.id}
+                      task={task}
+                      markComplete={markComplete}
+                      deleteTask={deleteTask}
+                    />
+                }}
+              )}
             </div>
+              <div className="center-dash">
+                <form className="task-add-form">
+                  <h1 className="add">Add Task</h1>
+                  <h3 className="task-name">Task Name</h3>
+                  <input className="input" placeholder="Task Name" value={input} onChange={event => setInput(event.target.value)}/>
+                  <h3 className="task-name">Completed By</h3>
+                  <input className="input" placeholder="Due Date" value={dueDateInput} onChange={event => setDueDateInput(event.target.value)}/>
+                  <button className="button" onClick ={addTasks}>Add To List</button>
+                </form>
+              </div>
           </div>
         </div>
     )

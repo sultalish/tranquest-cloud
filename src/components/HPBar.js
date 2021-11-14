@@ -4,7 +4,7 @@ import firebase from '../service/firebase';
 
 import './HPBar.css';
 
-const HPBar = ({updateHPBar}) => {
+const HPBar = () => {
   const [progressWidth, setProgressWidth] = useState(0);
   const [level, setLevel] = useState(0);
   const [xpLevel, setXPLevel] = useState(0);

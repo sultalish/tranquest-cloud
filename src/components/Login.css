@@ -2,7 +2,7 @@ body {
   background-color: #FDF8E2 ;
 }
 
-.Add-To-Do {
+/* .Add-To-Do {
   margin: 25px;
   width: 350px;
   height: 200px;
@@ -25,7 +25,7 @@ body {
     display: flex;
     flex-wrap: wrap;
   }
-  
+
   .center-dash {
     background-color: var(--dark-blue);
     margin: 48px -44px;
@@ -45,20 +45,25 @@ body {
     top: 50vh;
     text-align: center;
     width: 100%;
-}
+} */
+
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
 
   .login{
-    width: 97%;
+    width: 50%;
+    font-size: 24px;
+    margin: auto;
     background-color: #F3BFB3;
     color: white;
     padding: 50px 36px;
-    margin: 0px 0;
     border: none;
     border-radius: 70px;
     cursor: pointer;
-    display: inline-block;
     text-align: center;
-    align-self: center;
   }
 
   .login:active {

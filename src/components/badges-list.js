@@ -65,17 +65,23 @@ const badges = [
   {
     name: "Procastinator",
     description: "Complete 0 tasks in 7 days",
-    progress: 0
+    progress: 0,
+    type: "rank",
+    sentinel: 0
   },
   {
     name: "Persistence is Key",
     description: "Work daily on a task for more than 7 days",
-    progress: 0
+    progress: 0,
+    type: "rank",
+    sentinel: 7
   },
   {
     name: "Challenge Accepted",
     description: "Create a task",
-    progress: 0
+    progress: 0,
+    type: "rank",
+    sentinel: 1
   }
 ]
 

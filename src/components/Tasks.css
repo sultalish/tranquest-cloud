@@ -4,7 +4,8 @@
   --pink: #F3BFB3;
   --dark-blue: #5EA9BE;
   --blue: #9ACDE0;
-  --light-blue: #CBE1EF
+  --light-blue: #CBE1EF;
+  --green: #34786a;
 }
 
 .Add-To-Do {
@@ -14,17 +15,20 @@
   max-width: 1024px;
   margin: auto;
   padding: 10px;
+  margin-top: 50px;
+}
+
+.task-dashboard {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .taskbar {
-  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
   background-color: var(--pink);
-  padding: 0%;
-  left: 18%;
-  position: absolute;
-  top: 20%;
-  padding-right: 9%;
-  padding-left: 9%;
+  flex-grow: 1;
 }
 
 .task {
@@ -56,42 +60,28 @@
 }
 
 .task-header {
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-}
-
-.task-header h2 {
-  font-size: 45px;
-    margin: 0 auto;
-    padding-top: 6vh;
+  text-align: center;
+  font-size: 24px;
 }
 
 .center-dash {
-  background-color: var(--dark-blue);
-  position: absolute;
-  margin: 2% 15%;
-  border-radius: 26px;
-  width: 41%;
-  height: 54%;
+  background-color: var(--pink);
+  margin: 0 10px;
+  border-radius: 10px;
+  flex-grow: 2;
 }
 
 .task-add-form {
-  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
-  padding: 147px;
-  padding-top: 101px;
-  height: 101%;
-}
-.add {
-  font-size: 200%;
+  padding: 100px;
+  text-align: center;
 }
 
-.task-name{
-  font-size: 150%;
-}
 
-.input {
+.task-add-form .input {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -101,9 +91,9 @@
   box-sizing: border-box;
 }
 
-.button {
+.task-add-form .button {
   width: 100%;
-  background-color: #04568a;
+  background-color: #1abc9c;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -113,15 +103,14 @@
   display: inline-block;
   text-align: center;
   border-radius: 15px;
-  box-shadow: 0 9px rgb(153, 189, 255);
+  box-shadow: 0 9px #34786a;
 }
 
-.button:active {
-  background-color: #0028aa;
-  box-shadow: 0 5px #666;
+.task-add-form .button:active {
+  box-shadow: 0 5px #34786a;
   transform: translateY(4px);
 }
 
-.button:hover{
-  background-color: #3c80ff;
+.task-add-form .button:hover{
+  background-color: #54cdb5;
 }

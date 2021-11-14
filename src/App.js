@@ -16,7 +16,6 @@ import HPBar from './components/HPBar';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [updateHPBar, setUpdateHPBar] = useState(false);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
@@ -34,12 +33,12 @@ function App() {
             <Navbar />
             <Routes>
               <Route path='/' exact element={<DashBoard />} />
-              <Route path='/tasks' element={<TaskDetails setUpdateHPBar={setUpdateHPBar}/>} />
+              <Route path='/tasks' element={<TaskDetails />} />
               <Route path='/texts' element={<TextChat user={user} />} />
-              <Route path='/badges' element={<Badges />} />
+              <Route path='/badges' element={<Badges user={user} />} />
               <Route path='/login' element={<Login />} />
             </Routes>
-            <HPBar updateHPBar={updateHPBar} setUpdateHPBar={setUpdateHPBar}/>
+            <HPBar />
           </Router> : <Login />}
       </section>
     </div>

@@ -3,11 +3,12 @@ import { useEffect } from 'react';
 
 const Badge = ({ badge }) => {
 
-  // console.log(badge);
+  console.log(badge);
   // useEffect(async() => {
-  //   const doc = await db.collection('users').doc(auth.currentUser.uid).get();
-  //   const data = await doc.data();
-  //   const tasksCompleted = await data.tasksCompleted;
+  //   const tasksRef = await db.collection('users').doc(auth.currentUser.uid).collection('tasks');
+  //   const snapshot = await tasksRef.where('completed', '==', true).get();
+  //   const tasks = snapshot.docs.map(doc => doc.data());
+  //   let tasksCompleted = tasks.length;
   //
   //   console.log(tasksCompleted);
   //   console.log(badge.type === "rank" && tasksCompleted >= badge.sentinel);
@@ -26,7 +27,7 @@ const Badge = ({ badge }) => {
 
   return (
     <div className='badge'>
-      <p>{badge.name}</p>
+      <h1>{badge.name}</h1>
       <p>{badge.description}</p>
       {badge.progress === 1 ?
         <p>{badge.dateAchieved}</p>
