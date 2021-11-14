@@ -5,15 +5,13 @@
     background: #FDF8E2;
 }
 
-.TaskBar{
-    position: absolute;
-    width: 254px;
-    height: 816px;
-    left: 42px;
-    top: 45px;
+.task-header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding-top: 18%;
 }
-
-.TasksHeader{
+.task-header{
     position: absolute;
     width: 156px;
     height: 58px;
@@ -28,16 +26,4 @@
     text-align: center;
 
     color: #5EA9BE;
-}
-
-.TaskHolder{
-    position: absolute;
-    width: 254px;
-    height: 733px;
-    left: 42px;
-    top: 128px;
-
-    background: #FFDDD3;
-    border: 9px solid #FDF8E2;
-    border-radius: 17px;
 }

@@ -70,32 +70,31 @@ const TaskDetails = () =>{
         <div className="Add-To-Do">
           <div className="task-header">
             <h2>Tasks</h2>
-            <p>Add</p>
           </div>
-          <div className="task-dashboard">
-            <div className="taskbar">
-              {tasks.map(task => {
-                  if (Object.keys(task).length > 1) {
-                    return <Tasks
-                      key={task.id}
-                      task={task}
-                      markComplete={markComplete}
-                      deleteTask={deleteTask}
-                    />
-                }}
-              )}
-            </div>
-
+          <div className="taskbar">
+            {tasks.map(task => {
+                if (Object.keys(task).length > 1) {
+                  return <Tasks
+                    key={task.id}
+                    task={task}
+                    markComplete={markComplete}
+                    deleteTask={deleteTask}
+                  />
+              }}
+            )}            
+          </div>
+          <div className="add-task">
             <div className="center-dash">
               <form className="task-add-form">
-                <h1>Add Task</h1>
-                <input value={input} onChange={event => setInput(event.target.value)}/>
-                <input value={dueDateInput} onChange={event => setDueDateInput(event.target.value)}/>
-                <button onClick ={addTasks}>Add To List</button>
+                <h1 className="add">Add Task</h1>
+                <h3 className="task-name">Task Name</h3>
+                <input className="input" placeholder="Task Name" value={input} onChange={event => setInput(event.target.value)}/>
+                <h3 className="task-name">Completed By</h3>
+                <input className="input" placeholder="Due Date" value={dueDateInput} onChange={event => setDueDateInput(event.target.value)}/>
+                <button className="button" onClick ={addTasks}>Add To List</button>
               </form>
             </div>
           </div>
-
         </div>
     )
 }
