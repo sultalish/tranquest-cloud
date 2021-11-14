@@ -3,24 +3,26 @@ import { useEffect } from 'react';
 
 const Badge = ({ badge }) => {
 
-  useEffect(async() => {
-    const doc = await db.collection('users').doc(auth.currentUser.uid).get();
-    const data = await doc.data();
-    const tasksCompleted = await data.tasksCompleted;
-
-    console.log(tasksCompleted);
-    console.log(badge.type === "rank" && tasksCompleted >= badge.sentinel);
-    if (badge.type === "rank" && tasksCompleted >= badge.sentinel) {
-      db.collection('users').doc(auth.currentUser.uid).collection('badges').doc(`${badge.id}`).update({
-        progress: 1,
-        dateAchieved: new Date(),
-      })
-    } else if (badge.type === "rank") {
-      db.collection('users').doc(auth.currentUser.uid).collection('badges').doc(`${badge.id}`).update({
-        progress: tasksCompleted/badge.sentinel,
-      })
-    }
-  }, []);
+  // console.log(badge);
+  // useEffect(async() => {
+  //   const doc = await db.collection('users').doc(auth.currentUser.uid).get();
+  //   const data = await doc.data();
+  //   const tasksCompleted = await data.tasksCompleted;
+  //
+  //   console.log(tasksCompleted);
+  //   console.log(badge.type === "rank" && tasksCompleted >= badge.sentinel);
+  //   if (badge.type === "rank" && tasksCompleted >= badge.sentinel) {
+  //     db.collection('users').doc(auth.currentUser.uid).collection('badges').doc(`${badge.id}`).update({
+  //       progress: 1,
+  //       dateAchieved: new Date()
+  //     })
+  //   } else if (badge.type === "rank") {
+  //       const progress = tasksCompleted/badge.sentinel;
+  //       db.collection('users').doc(auth.currentUser.uid).collection('badges').doc(`${badge.id}`).update({
+  //         progress: progress,
+  //       })
+  //     }
+  // }, []);
 
   return (
     <div className='badge'>

@@ -4,7 +4,7 @@ import firebase from '../service/firebase';
 
 import './HPBar.css';
 
-const HPBar = () => {
+const HPBar = ({updateHPBar}) => {
   const [progressWidth, setProgressWidth] = useState(0);
   const [level, setLevel] = useState(0);
   const [xpLevel, setXPLevel] = useState(0);
@@ -22,10 +22,11 @@ const HPBar = () => {
     let calcLevel = 0.5 + Math.sqrt(1 + 8*(totalXP)/(threshold)) / 2;
     let currentLevel = Math.floor(calcLevel);
 
+    console.log(xpLevel);
     setLevel(currentLevel);
     setXPLevel(calcLevel - Math.floor(calcLevel));
     setProgressWidth(`${(xpLevel * windowWidth) * 100 / windowWidth}%`);
-  }, [windowWidth])
+  });
 
   const barStyle = {
     width: progressWidth
