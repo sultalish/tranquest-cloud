@@ -1,13 +1,23 @@
 import { auth, db, signInWithGoogle } from '../service/firebase';
 
-import '../App.css';
+import './Login.css';
 
 import badges from './badges-list';
 
 const Login = () => {
     return (
-        <div>
-            <button className="button" onClick={signIn}>Sign in with google</button>
+        <div className="Add-To-Do">
+            <div className="task-header">
+                <h2>Tranquest Cloud</h2>
+            </div>
+            <div>
+                <div className="center-dash">
+                    <div className="task-add-form">
+                        <button className="login" onClick={signIn}>Sign in with google</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }
@@ -49,13 +59,13 @@ function signIn() {
             });
 
         badges.forEach((badge, i) => {
-          db.collection("users").doc(auth.currentUser.uid).collection("badges").doc(i.toString()).set(badge, { merge: true })
-            .then(() => {
-                console.log("Document successfully written!");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
+            db.collection("users").doc(auth.currentUser.uid).collection("badges").doc(i.toString()).set(badge, { merge: true })
+                .then(() => {
+                    console.log("Document successfully written!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
         });
 
         console.log(result)

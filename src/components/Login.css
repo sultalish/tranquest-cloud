@@ -1,0 +1,27 @@
+.task-header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+  }
+
+  .task-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .center-dash {
+    background-color: var(--dark-blue);
+    margin: 0 10px;
+    border-radius: 10px;
+    flex-grow: 2;
+  }
+  
+  .task-add-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 100px;
+    height: 100%;
+    text-align: center;
+  }
