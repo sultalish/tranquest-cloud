@@ -9,6 +9,7 @@ import TaskDetails from './components/TaskDetails';
 import DashBoard from './components/DashBoard';
 import TextChat from './components/TextChat';
 import Navbar from './components/NavBar';
+import Badges from './components/Badges';
 
 
 
@@ -33,6 +34,7 @@ function App() {
               <Route path='/dashboard' exact element={<DashBoard />} />
               <Route path='/tasks' element={<TaskDetails />} />
               <Route path='/texts' element={<TextChat user={user} />} />
+              <Route path='/badges' element={<Badges user={user} />} />
               <Route path='/login' element={<Login />} />
             </Routes>
           </Router> : <Login />}

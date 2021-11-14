@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Tasks = (props) => {
+const Tasks = ({task, markComplete, deleteTask}) => {
 
     return (
         <div>
-            <li>{props.text}</li>
-            <li>{props.dueDate}</li>
+            <li>{task.task}</li>
+            <li>{task.dueDate}</li>
+            <li onClick={(e) => markComplete(e, task.id)}>Mark Complete</li>
+            <li onClick={(e) => deleteTask(e, task.id)}>Delete</li>
+            <br></br>
         </div>
     )
 }
