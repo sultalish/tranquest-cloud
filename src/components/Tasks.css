@@ -47,6 +47,12 @@
   cursor: pointer;
 }
 
+.task-markComplete:hover {
+  text-decoration: underline;
+  color: var(--blue);
+  cursor: pointer;
+}
+
 .taskdetails {
   background-color: var(--blue);
 }
