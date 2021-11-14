@@ -24,11 +24,11 @@ const ProgressBar = () => {
     const threshold = 100;
     const calcLevel = 0.5 + Math.sqrt(1 + 8*(totalXP)/(threshold)) / 2;
 
-    setLevel(Math.floor(level));
-    setXPLevel(level - Math.floor(level));
+    setLevel(Math.floor(calcLevel));
+    setXPLevel(calcLevel - Math.floor(calcLevel));
 
     db.collection('users').doc(auth.currentUser.uid).update({
-      level: level,
+      level: calcLevel,
       xplevel: xpLevel,
     })
 
