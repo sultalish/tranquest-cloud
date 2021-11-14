@@ -38,7 +38,7 @@ function App() {
               <Route path='/badges' element={<Badges user={user} />} />
               <Route path='/login' element={<Login />} />
             </Routes>
-            <HPBar/>
+            <HPBar />
           </Router> : <Login />}
       </section>
     </div>
