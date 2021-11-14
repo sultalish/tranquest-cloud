@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { auth, db } from "../service/firebase";
+import firebase from '../service/firebase';
 import Tasks from "./Tasks";
 import './Tasks.css';
 
@@ -52,6 +53,10 @@ const TaskDetails = () =>{
       event.preventDefault();
       db.collection('users').doc(auth.currentUser.uid).collection('tasks').doc(id).update({
         completed: true
+      })
+      db.collection('users').doc(auth.currentUser.uid).update({
+        tasksCompleted: firebase.firestore.FieldValue.increment(1),
+        xplevel: firebase.firestore.FieldValue.increment(100)
       })
     }
 
