@@ -59,7 +59,8 @@ function signIn() {
             });
 
         badges.forEach((badge, i) => {
-            db.collection("users").doc(auth.currentUser.uid).collection("badges").doc(i.toString()).set(badge, { merge: true })
+            db.collection("users").doc(auth.currentUser.uid).collection("badges").doc(i.toString())
+            .set({...badge, id: i}, { merge: true })
                 .then(() => {
                     console.log("Document successfully written!");
                 })

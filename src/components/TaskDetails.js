@@ -74,13 +74,16 @@ const TaskDetails = () =>{
           </div>
           <div className="task-dashboard">
             <div className="taskbar">
-              {tasks.map(task => (
-                  <Tasks
-                    key={task.id}
-                    task={task}
-                    markComplete={markComplete}
-                    deleteTask={deleteTask}
-                  />))}
+              {tasks.map(task => {
+                  if (Object.keys(task).length > 1) {
+                    return <Tasks
+                      key={task.id}
+                      task={task}
+                      markComplete={markComplete}
+                      deleteTask={deleteTask}
+                    />
+                }}
+              )}
             </div>
 
             <div className="center-dash">

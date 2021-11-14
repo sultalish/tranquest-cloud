@@ -4,16 +4,14 @@ import firebase from '../service/firebase';
 
 const ProgressBar = () => {
   const [progressWidth, setProgressWidth] = useState(0);
-  const [tasksCompleted, setTasksCompleted] = useState(0);
-  const [tasks, setTasks] = useState(0);
   const [level, setLevel] = useState(0);
 
   useEffect(async() => {
-    const doc = await db.collection('users').doc(auth.currentUser.uid).get();
-    const data = await doc.data();
-    const tasksCompleted = await data.tasksCompleted;
-    const xplevel = await data.xplevel;
-    const level = await data.level;
+    let doc = await db.collection('users').doc(auth.currentUser.uid).get();
+    let data = await doc.data();
+    let tasksCompleted = await data.tasksCompleted;
+    let xplevel = await data.xplevel;
+    let level = await data.level;
 
     console.log(tasksCompleted);
     console.log(level);
@@ -24,6 +22,13 @@ const ProgressBar = () => {
         xplevel: xplevel - (level * 100),
       })
     }
+
+    doc = await db.collection('users').doc(auth.currentUser.uid).get();
+    data = await doc.data();
+    tasksCompleted = await data.tasksCompleted;
+    xplevel = await data.xplevel;
+    level = await data.level;
+
     const width = xplevel / (level * 100);
 
     setProgressWidth(width);
