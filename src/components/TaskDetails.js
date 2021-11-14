@@ -81,6 +81,7 @@ const TaskDetails = () =>{
                     <ul>
                         {tasks.map(task => (
                             <Tasks
+                              key={task.id}
                               task={task}
                               markComplete={markComplete}
                               deleteTask={deleteTask}
