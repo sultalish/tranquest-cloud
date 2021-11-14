@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { db, auth } from '../service/firebase';
 import firebase from '../service/firebase';
 
-const ProgressBar = () => {
+const HPBar = () => {
   const [progressWidth, setProgressWidth] = useState(0);
   const [level, setLevel] = useState(0);
   const [xpLevel, setXPLevel] = useState(0);
@@ -39,13 +39,13 @@ const ProgressBar = () => {
   }
 
   return (
-    <div style={divStyle}>
+    <div style={divStyle} className="XPBAR">
       <p>{level}</p>
-      <div style={barStyle}>
+      <div style={barStyle} className="CURRENTXP">
       </div>
       <p>{level + 1}</p>
     </div>
   )
 }
 
-export default ProgressBar;
+export default HPBar;
