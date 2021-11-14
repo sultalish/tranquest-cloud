@@ -46,3 +46,37 @@
     background-color: white; /* White background color */
     padding: 20px; /* Some padding */
   }
+
+  .quote {
+    display: table;
+    margin: auto;
+    background: grey;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 100px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+  }
+
+  .quote-header {
+    position: relative;
+    top: 0px;
+    padding: 20px;
+    text-align: center;
+    background: #1abc9c;
+    color: white; /* white text color */
+  }
+
+  .quote-body {
+    position: relative;
+    top: 0px;
+    text-align: center;
+    background: grey;
+    color: white; /* white text color */
+  }
+
+  .mySlides {
+    display: none;
+  }
