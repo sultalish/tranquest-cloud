@@ -1,0 +1,73 @@
+body {
+  background-color: #FDF8E2 ;
+}
+
+/* .Add-To-Do {
+  margin: 25px;
+  width: 350px;
+  height: 200px;
+}
+
+.task-header {
+  display: flex;
+  align-content: center;
+  width: 350px;
+  padding-bottom: 31px;
+  justify-content: space-between;
+  }
+
+  .task-header h2 {
+    font-size: 45px;
+    margin: 0 auto;
+  }
+
+  .task-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .center-dash {
+    background-color: var(--dark-blue);
+    margin: 48px -44px;
+    padding-top: 0px;
+    border-radius: 42px;
+    flex-grow: 2;
+    width: 135%;
+}
+  .task-add-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 101%;
+    top: 50vh;
+    text-align: center;
+    width: 100%;
+} */
+
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .login{
+    width: 50%;
+    font-size: 24px;
+    margin: auto;
+    background-color: #F3BFB3;
+    color: white;
+    padding: 50px 36px;
+    border: none;
+    border-radius: 70px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .login:active {
+    background-color: #E9AA9B;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }

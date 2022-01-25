@@ -1,0 +1,82 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 101%;
+    top: 50vh;
+    text-align: center;
+    width: 100%;
+}
+
+.header {
+    padding: 80px; /* some padding */
+    text-align: center; /* center the text */
+    background: #1abc9c; /* green background */
+    color: white; /* white text color */
+  }
+  
+/* Increase the font size of the <h1> element */
+.header h1 {
+    font-size: 40px;
+}
+
+/* Ensure proper sizing */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Column container */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Create two unequal columns that sits next to each other */
+  /* Sidebar/left column */
+  .side {
+    padding: 20px; /* Some padding */
+  }
+  
+  /* Main column */
+  .main {
+    flex: 70%; /* Set the width of the main content */
+    background-color: white; /* White background color */
+    padding: 20px; /* Some padding */
+  }
+
+  .quote {
+    display: table;
+    margin: auto;
+    background: grey;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 100px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+  }
+
+  .quote-header {
+    position: relative;
+    top: 0px;
+    padding: 20px;
+    text-align: center;
+    background: #1abc9c;
+    color: white; /* white text color */
+  }
+
+  .quote-body {
+    position: relative;
+    top: 0px;
+    text-align: center;
+    background: grey;
+    color: white; /* white text color */
+  }
+
+  .mySlides {
+    display: none;
+  }

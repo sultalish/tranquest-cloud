@@ -1,0 +1,58 @@
+.XPBAR {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  color: #00cc00;
+  cursor: pointer;
+  background-color: #34786a;
+}
+
+.XPBAR * {
+  position: fixed;
+}
+
+.levels {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+}
+
+.CURRENTXP {
+  text-align: center;
+  margin: auto;
+  background-color: #1abc9c;
+  border: 1px #1abc9c solid;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.levels > * {
+  font-size: 36px;
+  bottom: -12px;
+  background-color: #1abc9c;
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px white solid;
+}
+
+.level-1, .level-2 {
+  z-index: 1;
+}
+
+.level-1 {
+  left: -12px;
+}
+
+.level-2 {
+  right: -12px;
+}
